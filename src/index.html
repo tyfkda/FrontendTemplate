@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FrontendTemplate</title>
+    <link rel="stylesheet" href="assets/default.css">
+  </head>
+
+  <body>
+    Hello, frontend development.
+
+    <!-- HTML comment will be removed -->
+
+    <% if (buildTarget === 'debug') { %>
+      <!-- Use RequireJS in debug build -->
+      <script data-main="jsdev/main.js" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.22/require.js"></script>
+    <% } else { %>
+      <!-- Avoid using RequireJS in release build -->
+      <script src="assets/main.js" type="text/javascript"></script>
+    <% } %>
+  </body>
+</html>
