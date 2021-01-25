@@ -30,7 +30,7 @@ const ASSETS_DIR = `${DEST_DIR}/assets`
 const SRC_TS_DIR = `${ROOT_DIR}/src`
 const SRC_TS_FILES = `${SRC_TS_DIR}/**/*.ts`
 const SRC_HTML_DIR = `${ROOT_DIR}/src`
-const SRC_HTML_FILES = `${SRC_HTML_DIR}/*.html`  // */
+const SRC_HTML_FILES = `${SRC_HTML_DIR}/*.html`
 const SRC_SASS_FILES = `${ROOT_DIR}/src/**/*.scss`
 const SRC_TEST_DIR = `${ROOT_DIR}/test`
 const SRC_TEST_FILES = `${SRC_TEST_DIR}/**/*.spec.ts`
@@ -85,7 +85,7 @@ export function watchHtml() {
 export function ts() {
   const config = clone(webpackConfig)
   config.mode = 'development'
-  config.devtool = '#cheap-module-source-map'
+  config.devtool = 'source-map'
   return gulp.src([`${SRC_TS_DIR}/main.ts`])
     .pipe(plumber())
     .pipe(webpackStream(config, webpack))
@@ -96,7 +96,7 @@ export function watchTs() {
   const config = clone(webpackConfig)
   config.mode = 'development'
   config.watch = true
-  config.devtool = '#cheap-module-source-map'
+  config.devtool = 'source-map'
   return gulp.src(SRC_TS_FILES, {base: SRC_TS_DIR})
     .pipe(plumber())
     .pipe(webpackStream(config, webpack))
